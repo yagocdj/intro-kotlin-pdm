@@ -123,11 +123,11 @@ fun main(){
     // 8. adicionarVariasNotas -> implemente o método adicionarVariasNotas();
 
     // 9. adicionarVariasNotas -> adicione 3 notas para a disciplina que você acabou de criar
-    adicionarVariasNotas("PDM", 10.0, 9.7, 9.9)
+    adicionarVariasNotas("CE", 10.0, 9.7, 9.9)
 
     // 10. mostrarNotas -> mostre as notas da disciplina que você acabou de criar;
-    println("Notas de PDM:")
-    mostrarNotas("PDM")
+    println("Notas de CE:")
+    mostrarNotas("CE")
     
     // Bônus: (Não vai ganhar nada, ou melhor, vai ganhar mais conhecimento >:O)
     
