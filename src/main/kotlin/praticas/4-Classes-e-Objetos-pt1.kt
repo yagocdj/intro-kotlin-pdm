@@ -1,122 +1,77 @@
-import java.util.*
-import kotlin.math.pow
 
 // Questão 1
-class Produto(nome: String, preco: Double) {
-    var nome: String = nome
-    var preco: Double = preco
+class Produto {
+    var nome: String
+    var preco: Double
 
     // Implemente os construtores conforme especificado na questão
-    constructor() : this("Produto", 0.0)
-
-    constructor(nome: String) : this(nome, 0.0)
 }
 
-//fun main() {
-//    // Crie instâncias das diferentes classes Produto utilizando os seus construtores e imprima os detalhes de cada produto.
-//    val produtoUm = Produto()
-//    println("Detalhes do produtoUm")
-//    println(produtoUm.nome)
-//    println(produtoUm.preco)
-//
-//    val produtoDois = Produto("Farinha de trigo")
-//    println("Detalhes do produtoDois")
-//    println(produtoDois.nome)
-//    println(produtoDois.preco)
-//
-//    val produtoTres = Produto("Arroz", 5.50)
-//    println("Detalhes do produtoTres")
-//    println(produtoTres.nome)
-//    println(produtoTres.preco)
-//}
+fun main() {
+    // Crie instâncias das diferentes classes Produto utilizando os seus construtores e imprima os detalhes de cada produto.
+}
 
 // Questão 2
-class Cliente(var nome: String, private var idade: Int) {
+class Cliente {
+    var nome: String = ""
+    private var idade: Int = 0
+
     // Utilize os modificadores de visibilidade para definir os atributos nome e idade conforme especificado na questão
 
     // Crie um método público na classe Cliente chamado mostrarIdade() conforme especificado na questão
-    fun mostrarIdade() {
-        println("Idade de $nome: $idade ano(s)")
-    }
 }
 
-//fun main() {
+fun main() {
     // Crie uma instância de Cliente e chame o método mostrarIdade() para verificar seu funcionamento.
-//    val cliente = Cliente("Yago", 21)
-//    cliente.mostrarIdade()
-//}
+}
 
 // Questão 3
 abstract class Personagem {
     // Crie um método abstrato atacar() conforme especificado na questão
-    abstract fun atacar()
 }
 
 class Guerreiro : Personagem() {
     override fun atacar() {
         // Implemente o método atacar() de acordo com as características do Guerreiro
-        println("O guerreiro usou sua espada.")
     }
 }
 
 class Mago : Personagem() {
     override fun atacar() {
         // Implemente o método atacar() de acordo com as características do Mago
-        println("O mago lançou um feitiço")
     }
 }
 
-//fun main() {
-//    // Crie instâncias de Guerreiro e Mago e chame o método atacar() de cada um para verificar se estão realizando os ataques corretamente de acordo com suas respectivas classes.
-//    println("-- Ataque do guerreiro --")
-//    val guerreiro = Guerreiro()
-//    guerreiro.atacar()
-//
-//    println("-- Ataque do mago --")
-//    val mago = Mago()
-//    mago.atacar()
-//}
+fun main() {
+    // Crie instâncias de Guerreiro e Mago e chame o método atacar() de cada um para verificar se estão realizando os ataques corretamente de acordo com suas respectivas classes.
+}
 
 // Questão 4
 interface FormaGeometrica {
     // Declare um método abstrato calcularArea() conforme especificado na questão
-    fun calcularArea(): Double
 }
 
 class Retangulo(val altura: Double, val largura: Double) : FormaGeometrica {
     override fun calcularArea(): Double {
         // Implemente o método calcularArea() para o Retangulo conforme especificado na questão
-        return largura * altura
     }
 }
 
 class Circulo(val raio: Double) : FormaGeometrica {
     override fun calcularArea(): Double {
         // Implemente o método calcularArea() para o Circulo conforme especificado na questão
-        return Math.PI * raio.pow(2)
     }
 }
 
-//fun main() {
-//    // Crie instâncias dessas duas classes e chame o método calcularArea() em cada uma delas para verificar o resultado.
-//    println("-- Calculando a área de um retângulo --")
-//    val retangulo = Retangulo(5.0, 10.0)
-//    println("Resultado: ${retangulo.calcularArea()}")
-//
-//    println("-- Calculando a área de um círculo --")
-//    val circulo = Circulo(5.0)
-//    println("Resultado: ${circulo.calcularArea()}")
-//}
+fun main() {
+    // Crie instâncias dessas duas classes e chame o método calcularArea() em cada uma delas para verificar o resultado.
+}
 
 // Questão 5
 class ContaBancaria {
     var numeroConta: String = ""
     var nomeTitular: String = ""
-        get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-    var saldo: Double = 0.0
-        set(value) {
-            field = if (value < 0.0) 0.0 else value
-        }
+    private var saldo: Double = 0.0
 
     // Implemente um getter personalizado para a propriedade nomeTitular conforme especificado na questão
 
@@ -125,11 +80,4 @@ class ContaBancaria {
 
 fun main() {
     // Crie uma instância de ContaBancaria. Altere o nome do titular para uma string que inicie com letra minúscula e mude o saldo para um valor negativo. Imprima os valores para verificar se as regras dos getters e setters estão sendo aplicadas corretamente.
-    println("-- Dados da conta bancária --")
-    val contaBancaria = ContaBancaria()
-    contaBancaria.nomeTitular = "fulano"
-    println("Nome do títular: ${contaBancaria.nomeTitular}")
-
-    contaBancaria.saldo = -15.0
-    println("Saldo: ${contaBancaria.saldo}")
 }
