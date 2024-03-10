@@ -137,8 +137,8 @@ fun main(){
     println("Média de PDM:")
     println(calcularMedia("PDM"))
 
-    println("Média de GPS:")
-    println(calcularMedia("GPS"))
+    println("Média de CE:")
+    println(calcularMedia("CE"))
     
     // 13: mostrarNotas -> altere o mostrarNotas() para que ele mostre também a média das disciplinas
 
