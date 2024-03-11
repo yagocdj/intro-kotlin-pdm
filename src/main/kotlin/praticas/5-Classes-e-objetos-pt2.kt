@@ -30,3 +30,56 @@
  * 8. Utilize o typecast (is e as) para verificar o tipo de cada funcionário na lista e chamar o método Apresentar
  * correspondente.
  */
+
+open class Funcionario (protected var nome: String, protected var idade: Int) {
+    init {
+        println("Novo funcionário registrado -> nome: $nome; idade: $idade ano(s)")
+    }
+
+    open fun apresentar() {
+        println("Olá! Eu me chamo $nome e tenho $idade ano(s).")
+    }
+}
+class Gerente(nome: String, idade: Int, var setor: String) : Funcionario(nome, idade) {
+    override fun apresentar() {
+        println("Olá! Eu me chamo $nome e tenho $idade ano(s). Sou gerente de $setor.")
+    }
+}
+class Desenvolvedor(nome: String, idade: Int, var linguagem: String) : Funcionario(nome, idade) {
+    override fun apresentar() {
+        println("Olá! Eu me chamo $nome e tenho $idade ano(s). Sou especialista em $linguagem.")
+    }
+}
+class Analista(nome: String, idade: Int, var area: String) : Funcionario(nome, idade) {
+    override fun apresentar() {
+        println("Olá! Eu me chamo $nome e tenho $idade ano(s). Sou analista de $area.")
+    }
+}
+
+fun main() {
+    val funcionarios = mutableListOf(
+        Gerente("Camila", 35, "Finanças"),
+        Gerente("Luíza", 42, "TI"),
+        Desenvolvedor("Ana", 20, "Kotlin"),
+        Desenvolvedor("Luciana", 40, "JavaScript"),
+        Analista("Maria", 24, "Dados"),
+        Analista("Vitoria",  54, "Redes")
+    )
+
+    for (funcionario in funcionarios) {
+        when (funcionario) {
+            is Gerente -> {
+                println("-- Gerente --")
+                funcionario.apresentar()
+            }
+            is Desenvolvedor -> {
+                println("-- Desenvolvedor --")
+                funcionario.apresentar()
+            }
+            is Analista -> {
+                println("-- Analista --")
+                funcionario.apresentar()
+            }
+        }
+    }
+}
