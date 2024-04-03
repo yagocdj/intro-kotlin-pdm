@@ -23,13 +23,28 @@ import kotlinx.coroutines.*
 // Agora utilize o método cancel() do objeto job para cancelar a corrotina.
 // Execute o programa e observe que a corrotina é cancelada.
 
-fun simpleCoroutine() {
+suspend fun simpleCoroutine(): Job {
+  val job1 = CoroutineScope(Dispatchers.Default).launch {
+    delay(1000L)
+    println("Olá, mundo!")
+  }
+
+  val job2 = CoroutineScope(Dispatchers.Default).launch {
+    delay(2000L)
+    println("Segunda corrotina")
+  }
+
+  return job2;
 }
 
 
 fun main() {
-    simpleCoroutine()
-    println("Corrotina iniciada.")
-    // Aguarde um pouco para permitir que a corrotina execute
-    Thread.sleep(2000)
+  runBlocking {
+    val job = simpleCoroutine()
+
+    job.cancel()
+  }
+  println("Corrotina iniciada.")
+  // Aguarde um pouco para permitir que a corrotina execute
+  Thread.sleep(2000)
 }
